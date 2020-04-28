@@ -1,7 +1,7 @@
 module DataUpdateScripts
   class ReIndexExistingArticlesWithApproved
     def run
-      # Reindexed all articles with new approved field
+      Article.published.find_each { |article| Article.trigger_index(article, false) }
     end
   end
 end

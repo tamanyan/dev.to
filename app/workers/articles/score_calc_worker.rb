@@ -9,6 +9,7 @@ module Articles
       return unless article
 
       article.update_score
+      article.index!
       article.index_to_elasticsearch_inline
     end
   end
